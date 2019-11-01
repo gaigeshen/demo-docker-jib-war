@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.gaigeshen.demo</groupId>
+    <artifactId>demo-docker-jib-war</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>1.7.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>dockerBuild</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>false</skip>
+                    <!--<from>
+                        <image>tomcat:8.5</image>
+                    </from>-->
+                    <to>
+                        <image>${project.artifactId}</image>
+                        <tags>
+                            <tag>${project.version}</tag>
+                        </tags>
+                    </to>
+                    <container>
+                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                        <environment>
+                            <TZ>Asia/Shanghai</TZ>
+                            <JAVA_OPTS>-Xms512m -Xmx512m</JAVA_OPTS>
+                        </environment>
+                        <!--<appRoot>/usr/local/tomcat/webapps/ROOT</appRoot>-->
+                    </container>
+                    <ports>
+                        <port>8080</port>
+                    </ports>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
