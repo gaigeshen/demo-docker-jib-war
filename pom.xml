@@ -25,9 +25,9 @@
                 </executions>
                 <configuration>
                     <skip>false</skip>
-                    <!--<from>
+                    <from>
                         <image>tomcat:8.5</image>
-                    </from>-->
+                    </from>
                     <to>
                         <image>${project.artifactId}</image>
                         <tags>
@@ -40,7 +40,7 @@
                             <TZ>Asia/Shanghai</TZ>
                             <JAVA_OPTS>-Xms512m -Xmx512m</JAVA_OPTS>
                         </environment>
-                        <!--<appRoot>/usr/local/tomcat/webapps/ROOT</appRoot>-->
+                        <appRoot>/usr/local/tomcat/webapps/ROOT</appRoot>
                     </container>
                     <ports>
                         <port>8080</port>
